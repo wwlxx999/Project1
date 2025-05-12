@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "name": "测试旗舰店1",
+    "phone": "12345678901",
+    "Wallet Address": "0x8DCCA316d52396F4D1dF6CDF9a54bbC195D335A7",
+    "image": "https://gateway.pinata.cloud/ipfs/bafybeibeu724av47sriuigflt6o5qtxnncyfxzx2ed7aipx2dj467jtpma", 
+    "attributes": [ 
+      {
+        "trait_type": "属性1", 
+        "value": "1000"
+      },
+      {
+        "trait_type": "属性2",
+        "value": "9999"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "测试旗舰店2", 
+    "phone": "12345678902",
+    "Wallet Address": "2",
+    "image": "https://gateway.pinata.cloud/ipfs/bafybeibeu724av47sriuigflt6o5qtxnncyfxzx2ed7aipx2dj467jtpma", 
+    "attributes": [ 
+      {
+        "trait_type": "属性1", 
+        "value": "555"
+      },
+      {
+        "trait_type": "属性2",
+        "value": "666"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "测试旗舰店3", 
+    "phone": "12345678903",
+    "Wallet Address": "3",
+    "image": "https://gateway.pinata.cloud/ipfs/bafybeibeu724av47sriuigflt6o5qtxnncyfxzx2ed7aipx2dj467jtpma", 
+    "attributes": [ 
+      {
+        "trait_type": "属性1", 
+        "value": "777"
+      },
+      {
+        "trait_type": "属性2",
+        "value": "888"
+      }
+    ]
+  }
+]

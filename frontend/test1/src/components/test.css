@@ -1,0 +1,1060 @@
+/* 全局样式 */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(
+        135deg, 
+        #0f172a 0%,
+        #1e293b 25%,
+        #2563eb 100%
+    );
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #f8fafc;
+}
+
+/* 主容器样式 */
+.container {
+    max-width: 1400px;
+    margin: 32px auto; /* 移除之前为导航栏预留的上边距 */
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.merchant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* 商户网格样式 */
+.merchant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 24px;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* 商户卡片样式 */
+.merchant-card {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.merchant-card:hover {
+    transform: translateY(-4px);
+    background: rgba(30, 41, 59, 0.9);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.merchant-image {
+    width: 100%;
+    /* 图片宽度占满父容器 */
+    height: auto;
+    /* 高度根据宽度自动调整，保持图片比例 */
+    object-fit: cover;
+    /* 确保图片填充容器，同时保持比例 */
+    border-radius: 8px;
+    /* 可选：为图片添加圆角 */
+    display: block;
+    /* 确保图片是块级元素，避免额外的间隙 */
+}
+
+.merchant-info {
+    padding: 15px;
+}
+
+/* 修改商户名称样式 */
+.merchant-name {
+    color: #ffffff; /* 白色文字 */
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 修改商户描述样式 */
+.merchant-description {
+    color: rgba(255, 255, 255, 0.9); /* 略微透明的白色 */
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.merchant-reputation {
+    color: rgba(255, 255, 255, 0.9); /* 更新信誉分数颜色 */
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+/* 突出显示状态和信誉分数 */
+.merchant-status {
+    color: #22c55e; /* 绿色显示状态 */
+    font-weight: 500;
+}
+
+.merchant-owner {
+    color: rgba(255, 255, 255, 0.8); /* 略微透明的白色 */
+    word-break: break-all;
+    /* 强制在单词内断行 */
+    overflow: hidden;
+    /* 隐藏超出容器的内容 */
+    text-overflow: ellipsis;
+    /* 添加省略号 */
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.top-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-top: 8px;
+    min-width: 160px;
+    z-index: 1000;
+}
+
+/* 修改下拉菜单样式 */
+.dropdown {
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    color: #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: rgba(96, 165, 250, 0.1);
+    color: #60a5fa;
+}
+
+/* 管理员入口按钮样式 */
+.button {
+    padding: 8px 16px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #2081e2; /* 添加默认背景色 */
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 按钮基础样式 */
+.button {
+    padding: 12px 24px;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #2081e2;
+}
+
+.button:hover {
+    background: #1868b7;
+}
+
+.button--admin {
+    background: #dc2626;
+}
+
+.button--admin:hover {
+    background: #b91c1c;
+}
+
+.button--function {
+    position: relative;
+    order: 1;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* 模态框样式 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 32px;
+    border-radius: 12px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 模态框样式 */
+.modal-content {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h2 {
+    margin-bottom: 24px;
+    text-align: center;
+    color: #1e293b;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.modal-content .input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.modal-content .input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+    outline: none;
+}
+
+.modal-content .button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    background: #3b82f6;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.modal-content .button:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+/* 保持取消按钮的红色样式 */
+.modal-content .cancel-button {
+    background-color: #ef4444;
+    margin-top: 12px;
+}
+
+.modal-content .cancel-button:hover {
+    background-color: #dc2626;
+}
+
+.search-bar {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    z-index: 1000;
+}
+
+/* 搜索栏样式 */
+.search-container {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 24px;
+    position: relative;
+}
+
+.search-bar {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+.search-bar:focus-within {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 8px;
+    font-size: 1rem;
+    color: #e2e8f0;
+    outline: none;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: #94a3b8;
+}
+
+.search-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-button:hover {
+    background: #0056b3;
+}
+
+.search-results {
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); /* 蓝色渐变背景 */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); /* 蓝色阴影 */
+    width: 300px;
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 修改搜索结果中的文字颜色，使其在新背景上更加清晰 */
+.search-results .merchant-info h3 {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.search-results .merchant-description,
+.search-results .merchant-owner,
+.search-results .merchant-reputation {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.search-results .merchant-status {
+    color: #ffffff;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+
+.search-container {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 20px;
+    align-items: center;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+    padding: 8px;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-top: 4px;
+    z-index: 1000;
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.suggestion-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.suggestion-item:hover {
+    background: rgba(96, 165, 250, 0.1);
+}
+
+.suggestion-name {
+    font-weight: bold;
+    color: #60a5fa;
+}
+
+.suggestion-description {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+.search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 16px;
+    background: white;
+    border-radius: 4px;
+    margin-top: 16px;
+}
+
+.navbar {
+    background: rgba(15, 23, 42, 0.8); /* 略微增加不透明度 */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 16px 24px;
+    position: sticky; /* 修改为sticky定位 */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+
+/* 导航栏样式 */
+.navbar-brand {
+    color: #60a5fa;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;  /* 让按钮靠右对齐 */
+    height: auto; /* 移除固定高度 */
+}
+
+/* 钱包显示样式 */
+.wallet-display {
+    background: rgba(15, 23, 42, 0.8); /* 更深的背景色 */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.wallet-display .address {
+    background: rgba(15, 23, 42, 0.8);
+    color: #93c5fd; /* 更亮的蓝色，提高可读性 */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.wallet-display i {
+    color: #93c5fd; /* 图标颜色与文字匹配 */
+    font-size: 1.1rem;
+}
+
+/* 添加管理员入口按钮特定样式 */
+.admin-button {
+    order: 2;  /* 设置更高的顺序，使其排在最后 */
+}
+
+/* 调整查看进度按钮的位置 */
+.progress-button {
+    order: 0;
+    margin-right: 16px;
+    background: #4f46e5;
+}
+
+.progress-button:hover {
+    background: #4338ca;
+}
+
+/* 调整主容器以适应固定导航栏 */
+.container {
+    margin-top: 92px;
+    /* 导航栏高度 + 额外间距 */
+    padding: 20px;
+}
+
+.image-upload-container {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #f8fafc;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px dashed #cbd5e1;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-input-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #3b82f6;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    width: auto;
+}
+
+.file-input-label:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+.image-preview {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: white;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 240px;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.uploading-indicator {
+    margin-top: 8px;
+    color: #64748b;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* 进度按钮样式 */
+.progress-button {
+    margin-right: 16px;
+    background: #4f46e5;
+}
+
+.progress-button:hover {
+    background: #4338ca;
+}
+
+/* 进度模态框样式 */
+.progress-modal {
+    max-width: 600px;
+    padding: 24px;
+    position: relative;  /* 添加相对定位 */
+}
+
+.progress-modal {
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* 添加关闭按钮样式 */
+.progress-modal .close-button {
+    position: static;  /* 移除绝对定位 */
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #dc2626;  /* 使用红色 */
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-modal .close-button:hover {
+    background: #fee2e2;  /* 悬停时添加浅红色背景 */
+}
+
+.progress-container {
+    margin: 32px 0;
+}
+
+.progress-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex: 1;
+}
+
+.step-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.step-icon i {
+    font-size: 20px;
+    color: #9ca3af;
+}
+
+.step-label {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+
+.step-time {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.progress-step.active .step-icon {
+    background: #4f46e5;
+}
+
+.progress-step.active .step-icon i {
+    color: white;
+}
+
+.progress-step.active .step-label {
+    color: #4f46e5;
+    font-weight: 500;
+}
+
+.progress-line {
+    flex: 1;
+    height: 2px;
+    background: #e5e7eb;
+    margin: 0 8px;
+    position: relative;
+    top: -24px;
+}
+
+.progress-line.active {
+    background: #4f46e5;
+}
+
+.merchant-progress {
+    margin-bottom: 32px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.merchant-progress:last-child {
+    margin-bottom: 0;
+}
+
+.merchant-progress .merchant-name {
+    margin: 0 0 16px 0;
+    color: #1e293b;
+    font-size: 1.1rem;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.refresh-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.refresh-button:hover {
+    background: #e6f0ff;
+    transform: rotate(180deg);
+}
+
+.refresh-button i {
+    transition: transform 0.3s ease;
+}
+
+/* 确保标题有足够的上边距 */
+.progress-modal h2 {
+    margin-top: 40px;
+}
+
+/* 添加按钮容器 */
+.modal-buttons {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.wallet-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    margin-left: 16px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #1e293b;
+}
+
+.wallet-display i {
+    color: #3b82f6;
+    font-size: 1.1rem;
+}
+
+.wallet-display .address {
+    letter-spacing: 0.5px;
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c5282;
+}
+
+/* 主容器样式 */
+.container {
+    max-width: 1400px;
+    margin: 32px auto; /* 移除之前为导航栏预留的上边距 */
+    padding: 24px;
+    background: transparent;
+}
+
+/* 页面标题样式 */
+.page-title {
+    color: #75a7fd;
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    text-align: center;
+    border-bottom: 2px solid #77b0fb;
+}
+
+/* 商户卡片样式 */
+.merchant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 16px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 商户卡片样式 */
+.merchant-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.merchant-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* 搜索栏样式 */
+.search-container {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 24px;
+    position: relative;
+}
+
+.search-bar {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+.search-bar:focus-within {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* 功能按钮区域样式 */
+.navbar-buttons {
+    display: flex;
+    gap: 16px;
+    margin-left: auto;
+}
+
+/* 钱包显示样式 */
+.wallet-display {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+/* 分隔线样式 */
+.section-divider {
+    height: 2px;
+    background: linear-gradient(
+        90deg, 
+        rgba(37, 99, 235, 0) 0%, 
+        rgba(165, 224, 254, 0.5) 50%, 
+        rgba(37, 99, 235, 0) 100%
+    );
+    margin: 40px 0;
+}
+
+/* 优化模态框样式 */
+.modal {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 添加响应式阴影效果 */
+@media (prefers-color-scheme: dark) {
+    .merchant-card {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .search-container {
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    .merchant-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.navbar-brand {
+    color: #60a5fa; /* 亮蓝色 */
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 修改商户列表容器样式 */
+.merchant-grid {
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* 修改商户卡片样式 */
+.merchant-card {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 修改搜索栏样式 */
+.search-container .search-bar {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-input {
+    color: #e2e8f0;
+}
+
+.search-input::placeholder {
+    color: #94a3b8;
+}
+
+/* 修改钱包显示样式 */
+.wallet-display {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #60a5fa;
+}
+
+/* 修改下拉菜单样式 */
+.dropdown {
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item {
+    color: #e2e8f0;
+}
+
+.dropdown-item:hover {
+    background: rgba(96, 165, 250, 0.1);
+    color: #60a5fa;
+}
+
+.suggestion-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.suggestion-item:hover {
+    background: rgba(96, 165, 250, 0.1);
+}
+
+.suggestion-name {
+    color: #60a5fa;
+}
+
+.suggestion-description {
+    color: #94a3b8;
+}
+
+/* 商户卡片悬浮效果 */
+.merchant-card:hover {
+    transform: translateY(-4px);
+    background: rgba(30, 41, 59, 0.9);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.my-merchants-toggle {
+    padding: 8px 16px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.my-merchants-toggle:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* 当激活"只看我的商户"时的样式 */
+.my-merchants-toggle.active {
+    background-color: #1d4ed8;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}

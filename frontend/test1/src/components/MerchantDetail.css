@@ -1,0 +1,695 @@
+.merchant-detail-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+.merchant-detail-card {
+    background: #ffffff;
+    border: 1px solid #e5e8eb;
+    border-radius: 16px;
+    padding: 32px;
+    margin: 24px auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 隐藏原图片容器 */
+.merchant-image-container {
+    display: none;
+}
+
+/* 商户详情信息区域 */
+.merchant-detail-info {
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e8eb;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+/* 分隔线效果 */
+.merchant-detail-info::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #e5e8eb;
+    border-radius: 2px;
+}
+
+/* 标题和描述 */
+.merchant-detail-info h1 {
+    margin: 0 0 24px 0;
+    color: #1e293b;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #475569;
+    margin-bottom: 32px;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 信息网格布局 */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.info-item {
+    background: #f8fafc;
+    padding: 16px 20px;
+    border-radius: 10px;
+    border: 1px solid #e5e8eb;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.label {
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.info-item span:not(.label) {
+    color: #1e293b;
+    font-size: 1.05rem;
+}
+
+.info-item span[title] {
+    cursor: help;
+    font-family: monospace;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.info-item span[title]:hover {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+/* 导航栏 */
+.detail-nav {
+    padding: 16px 24px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e8eb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* 返回按钮 */
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* 加载状态样式 */
+.loading {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+/* 添加商户按钮容器样式 */
+.merchant-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+/* 铸造NFT按钮样式 */
+.mint-nft-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.mint-nft-btn:hover {
+    background-color: #5648b5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mint-nft-btn:disabled {
+    background-color: #a8a8a8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.mint-nft-btn i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+/* 交易消息样式 */
+.tx-message {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    position: relative;
+}
+
+.tx-message i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.tx-message.success {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: #2e7d32;
+    border-left: 4px solid #2e7d32;
+}
+
+.tx-message.error {
+    background-color: rgba(244, 67, 54, 0.15);
+    color: #d32f2f;
+    border-left: 4px solid #d32f2f;
+}
+
+.tx-message.info {
+    background-color: rgba(33, 150, 243, 0.15);
+    color: #1976d2;
+    border-left: 4px solid #1976d2;
+}
+
+.close-message {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
+}
+
+.close-message:hover {
+    opacity: 1;
+}
+
+/* 更新现有的查看许可证按钮样式，使其与铸造按钮一致 */
+.view-license-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.view-license-btn:hover {
+    background-color: #1976d2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.view-license-btn i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+/* 查看证书按钮样式 */
+.view-certificate-btn {
+    background-color: #4a6bdf;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+}
+
+.view-certificate-btn:hover {
+    background-color: #3a5bcf;
+}
+
+.view-certificate-btn:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+}
+
+.view-certificate-btn i {
+    font-size: 16px;
+}
+
+/* 弹窗相关样式 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.image-modal {
+    position: relative;
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: calc(90vh - 48px);
+    object-fit: contain;
+    display: block;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #ef4444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal-btn:hover {
+    background: #dc2626;
+    transform: scale(1.1);
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    .merchant-detail-card {
+        margin: 16px;
+        padding: 20px;
+    }
+
+    .merchant-detail-info {
+        padding: 24px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .merchant-detail-info h1 {
+        font-size: 1.5rem;
+    }
+
+    .merchant-detail-image {
+        max-height: 300px; /* 移动端进一步减小高度 */
+    }
+
+    .merchant-detail-info::before {
+        width: 40px;
+        top: -16px;
+    }
+
+    .image-modal {
+        padding: 16px;
+        margin: 16px;
+    }
+
+    .view-license-btn {
+        width: auto; /* 移除全宽设置 */
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+.blockchain-info {
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.blockchain-info i {
+    margin-right: 6px;
+    color: #3b82f6;
+}
+
+.tx-hash {
+    color: #3b82f6;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tx-hash:hover {
+    text-decoration: underline;
+    color: #2563eb;
+}
+
+.block-number {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #1e293b;
+}
+
+/* 证书详情模态框样式 - 合并后的样式 */
+.certificate-modal {
+    background-color: white;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 8px;
+    padding: 0;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-height: 80vh; /* 限制最大高度为视口高度的80% */
+    overflow-y: auto; /* 添加垂直滚动条 */
+}
+
+/* 为滚动条添加样式 */
+.certificate-modal::-webkit-scrollbar {
+    width: 8px;
+}
+
+.certificate-modal::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.certificate-modal::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.certificate-modal::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.certificate-content {
+    padding: 24px;
+}
+
+.certificate-content h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: #333;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.certificate-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.cert-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    padding: 12px 16px;
+    border-radius: 4px;
+    border-left: 3px solid #3b82f6;
+}
+
+.cert-item .label {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.cert-item span:not(.label) {
+    font-weight: 500;
+    color: #333;
+    word-break: break-all;
+}
+
+.status-valid {
+    color: #2e7d32 !important;
+    font-weight: 600 !important;
+}
+
+.status-invalid {
+    color: #d32f2f !important;
+    font-weight: 600 !important;
+}
+
+/* 合并后的证书页脚样式 */
+.certificate-footer {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.view-on-explorer {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #6a5acd;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.view-on-explorer:hover {
+    background-color: #5648b5;
+    transform: translateY(-2px);
+}
+
+.view-on-explorer i {
+    margin-right: 8px;
+}
+
+@media (min-width: 768px) {
+    .certificate-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* 证书选择器容器样式 */
+.certificate-selector-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* 证书选择器样式 */
+.certificate-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #000;
+    justify-content: center; /* 添加居中对齐 */
+}
+
+.certificate-selector label {
+    margin-right: 5px;
+    font-weight: 500;
+}
+
+.certificate-selector select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: white;
+    min-width: 300px;
+}
+
+/* 证书状态样式 */
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.status.valid {
+    background-color: #e6f7e6;
+    color: #2e7d32;
+}
+
+.status.expired {
+    background-color: #fff8e1;
+    color: #ff8f00;
+}
+
+.status.revoked {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.certificate-details {
+    border: 2px solid #4a6bdf;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.certificate-header {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.certificate-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.certificate-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.certificate-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.certificate-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.certificate-item .label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* 关闭按钮样式 */
+.close-button {
+    position: absolute; /* 修改为绝对定位 */
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #dc2626;  /* 使用红色 */
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; /* 确保按钮在其他元素之上 */
+}
+
+.close-button:hover {
+    background-color: rgba(220, 38, 38, 0.1);
+    transform: scale(1.1);
+}
+
+/* IPFS链接样式 */
+.ipfs-hash-item {
+    grid-column: 1 / -1; /* 跨越所有列 */
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.ipfs-link {
+    color: #4a6bdf;
+    text-decoration: none;
+    word-break: break-all; /* 确保长文本可以换行 */
+    font-family: monospace;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.ipfs-link:hover {
+    background-color: #e8eeff;
+    color: #3a5bcf;
+}
+
+.ipfs-link i {
+    margin-left: 8px;
+    font-size: 0.8rem;
+}
